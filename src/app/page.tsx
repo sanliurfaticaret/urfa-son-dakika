@@ -4,6 +4,7 @@ import Ticker from "@/components/Ticker";
 import HeroSection from "@/components/HeroSection";
 import CategorySection from "@/components/CategorySection";
 import Footer from "@/components/Footer";
+export const metadata = { title: "Urfa Son Dakika - Şanlıurfa Haberleri", description: "Şanlıurfa'nın en güncel haber sitesi" };
 export const dynamic = "force-dynamic";
 async function getNews() {
   const { data, error } = await supabaseAdmin.from("news").select("*").order("created_at", { ascending: false });
