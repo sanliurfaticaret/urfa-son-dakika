@@ -14,6 +14,8 @@ async function getRelated(cat: string, id: string) {
   return data || [];
 }
 
+export const metadata = { title: "TEST PAGE METADATA" };
+
 export default async function HaberDetay({ params }: { params: { id: string } }) {
   const { id } = params;
   const news = await getNews(id);
