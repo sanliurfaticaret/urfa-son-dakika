@@ -1,31 +1,17 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-
-interface NewsItem {
-  id: string;
-  title: string;
-  summary: string;
-  category: string;
-  image: string;
-  created_at: string;
-}
-
+interface NewsItem { id: string; title: string; summary: string; category: string; image: string; created_at: string; }
 export default function NewsCard({ news, small }: { news: NewsItem; small?: boolean }) {
-  if (small) {
-    return (
-      <Link href={`/haber/${news.id}`} className="group flex gap-3 items-start hover:bg-gray-50 p-2 rounded transition">
-        <div className="relative w-20 h-14 shrink-0 rounded overflow-hidden">
-          <Image src={news.image} alt={news.title} fill className="object-cover" />
-        </div>
-        <div className="min-w-0">
-          <span className="text-[9px] font-bold text-[#c41e3a] uppercase">{news.category}</span>
-          <h4 className="text-sm font-semibold text-gray-800 leading-snug group-hover:text-[#c41e3a] transition line-clamp-2">{news.title}</h4>
-        </div>
-      </Link>
-    );
-  }
-
+  if (small) return (
+    <Link href={`/haber/${news.id}`} className="group flex gap-3 items-start hover:bg-gray-50 p-2 rounded transition">
+      <div className="relative w-20 h-14 shrink-0 rounded overflow-hidden"><Image src={news.image} alt={news.title} fill className="object-cover" /></div>
+      <div className="min-w-0">
+        <span className="text-[9px] font-bold text-[#c41e3a] uppercase">{news.category}</span>
+        <h4 className="text-sm font-semibold text-gray-800 leading-snug group-hover:text-[#c41e3a] transition line-clamp-2">{news.title}</h4>
+      </div>
+    </Link>
+  );
   return (
     <Link href={`/haber/${news.id}`} className="group bg-white rounded-lg overflow-hidden border border-gray-100 hover:shadow-lg transition flex flex-col h-full">
       <div className="relative h-44 overflow-hidden">

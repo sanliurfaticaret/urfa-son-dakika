@@ -1,25 +1,13 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-
-interface NewsItem {
-  id: string;
-  title: string;
-  summary: string;
-  category: string;
-  image: string;
-  created_at: string;
-}
-
+interface NewsItem { id: string; title: string; summary: string; category: string; image: string; created_at: string; }
 export default function HeroSection({ news }: { news: NewsItem[] }) {
-  const main = news[0];
-  const side = news.slice(1, 6);
+  const main = news[0]; const side = news.slice(1, 6);
   if (!main) return null;
-
   return (
     <section className="container mx-auto px-4 py-4">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-        {/* Ana haber */}
         <div className="lg:col-span-2">
           <Link href={`/haber/${main.id}`} className="group block relative h-[300px] md:h-[420px] rounded-lg overflow-hidden">
             <Image src={main.image} alt={main.title} fill className="object-cover group-hover:scale-105 transition duration-700" priority />
@@ -31,14 +19,10 @@ export default function HeroSection({ news }: { news: NewsItem[] }) {
             </div>
           </Link>
         </div>
-
-        {/* Yan haberler */}
         <div className="flex flex-col gap-3">
-          {side.map((item) => (
+          {side.map(item => (
             <Link key={item.id} href={`/haber/${item.id}`} className="group flex gap-3 bg-white p-2 rounded-lg border border-gray-100 hover:shadow transition">
-              <div className="relative w-24 h-16 shrink-0 rounded overflow-hidden">
-                <Image src={item.image} alt={item.title} fill className="object-cover" />
-              </div>
+              <div className="relative w-24 h-16 shrink-0 rounded overflow-hidden"><Image src={item.image} alt={item.title} fill className="object-cover" /></div>
               <div className="min-w-0">
                 <span className="text-[9px] font-bold text-[#c41e3a] uppercase">{item.category}</span>
                 <h4 className="text-sm font-semibold text-gray-800 leading-snug group-hover:text-[#c41e3a] transition line-clamp-2">{item.title}</h4>

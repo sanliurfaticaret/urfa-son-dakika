@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-
 export default function Footer() {
   return (
     <footer className="bg-[#1a1a2e] text-white mt-8">
@@ -13,9 +12,7 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-[10px] uppercase tracking-wider mb-2 text-gray-300">Kategoriler</h4>
             <div className="flex flex-wrap gap-x-4 gap-y-1">
-              {["Gündem","Şanlıurfa","Spor","Ekonomi","Sağlık","Eğitim","Kültür-Sanat"].map((c) => (
-                <Link key={c} href={`#${c.toLowerCase()}`} className="text-gray-400 text-xs hover:text-[#c41e3a] transition">{c}</Link>
-              ))}
+              {["Gündem","Şanlıurfa","Spor","Ekonomi","Sağlık","Eğitim","Kültür-Sanat"].map(c => <Link key={c} href={`#${c.toLowerCase()}`} className="text-gray-400 text-xs hover:text-[#c41e3a] transition">{c}</Link>)}
             </div>
           </div>
           <div>
