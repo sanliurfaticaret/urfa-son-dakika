@@ -14,9 +14,7 @@ async function getRelated(cat: string, id: string) {
   return data || [];
 }
 
-export async function generateMetadata({ params }: { params: { id: string } }) {
-  return { title: `ID: ${params.id} | Urfa Son Dakika` };
-}
+export const dynamic = "force-dynamic";
 
 export default async function HaberDetay({ params }: { params: { id: string } }) {
   const { id } = params;
@@ -26,6 +24,9 @@ export default async function HaberDetay({ params }: { params: { id: string } })
   const date = new Date(news.created_at).toLocaleDateString("tr-TR", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
 
   return (
+    <>
+      <title>{`${news.title} | Urfa Son Dakika`}</title>
+      <meta name="description" content={news.summary} />
     <main className="min-h-screen bg-[#f1f1f1]">
       <header className="bg-white border-b border-gray-100">
         <div className="container mx-auto px-4 py-3">
@@ -75,5 +76,6 @@ export default async function HaberDetay({ params }: { params: { id: string } })
         </section>
       )}
     </main>
+    </>
   );
 }
