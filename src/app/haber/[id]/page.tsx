@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Clock, User } from "lucide-react";
-export const dynamic = "force-dynamic";
 async function getNews(id: string) { const { data } = await supabaseAdmin.from("news").select("*").eq("id", id).single(); return data; }
 async function getRelated(cat: string, id: string) { const { data } = await supabaseAdmin.from("news").select("id,title,image,category,created_at").eq("category", cat).neq("id", id).order("created_at", { ascending: false }).limit(4); return data || []; }
 export default async function HaberDetay({ params }: { params: { id: string } }) {
