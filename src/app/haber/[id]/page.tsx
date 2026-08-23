@@ -14,7 +14,6 @@ async function getRelated(cat: string, id: string) {
   return data || [];
 }
 
-export const dynamic = "force-dynamic";
 export const metadata = { title: "TEST HABER DETAY" };
 
 export default async function HaberDetay({ params }: { params: { id: string } }) {
