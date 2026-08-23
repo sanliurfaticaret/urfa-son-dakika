@@ -12,7 +12,7 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-[10px] uppercase tracking-wider mb-2 text-gray-300">Kategoriler</h4>
             <div className="flex flex-wrap gap-x-4 gap-y-1">
-              {["Gündem","Şanlıurfa","Spor","Ekonomi","Sağlık","Eğitim","Kültür-Sanat"].map(c => <Link key={c} href={`#${c.toLowerCase()}`} className="text-gray-400 text-xs hover:text-[#c41e3a] transition">{c}</Link>)}
+              {[{name:"Gündem",id:"gundem"},{name:"Şanlıurfa",id:"sanliurfa"},{name:"Spor",id:"spor"},{name:"Ekonomi",id:"ekonomi"},{name:"Sağlık",id:"saglik"},{name:"Eğitim",id:"egitim"},{name:"Kültür-Sanat",id:"kultur"}].map(c => <Link key={c.id} href={`#${c.id}`} className="text-gray-400 text-xs hover:text-[#c41e3a] transition">{c.name}</Link>)}
             </div>
           </div>
           <div>
