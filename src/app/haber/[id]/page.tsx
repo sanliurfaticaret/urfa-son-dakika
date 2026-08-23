@@ -15,16 +15,7 @@ async function getRelated(cat: string, id: string) {
 }
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
-  try {
-    const news = await getNews(params.id);
-    if (!news) return { title: `Haber yok: ${params.id} | Urfa Son Dakika` };
-    return {
-      title: `${news.title} | Urfa Son Dakika`,
-      description: news.summary,
-    };
-  } catch (e) {
-    return { title: `Hata: ${String(e)} | Urfa Son Dakika` };
-  }
+  return { title: `ID: ${params.id} | Urfa Son Dakika` };
 }
 
 export default async function HaberDetay({ params }: { params: { id: string } }) {
