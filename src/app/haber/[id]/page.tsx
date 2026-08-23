@@ -15,15 +15,7 @@ async function getRelated(cat: string, id: string) {
 }
 
 export const dynamic = "force-dynamic";
-
-export async function generateMetadata({ params }: { params: { id: string } }) {
-  const news = await getNews(params.id);
-  if (!news) return { title: "Haber Bulunamadı | Urfa Son Dakika" };
-  return {
-    title: `${news.title} | Urfa Son Dakika`,
-    description: news.summary,
-  };
-}
+export const metadata = { title: "TEST HABER DETAY" };
 
 export default async function HaberDetay({ params }: { params: { id: string } }) {
   const { id } = params;
