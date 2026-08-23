@@ -4,8 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Clock, User } from "lucide-react";
 
-export const dynamic = "force-dynamic";
-
 async function getNews(id: string) {
   const { data } = await supabaseAdmin.from("news").select("*").eq("id", id).single();
   return data;
