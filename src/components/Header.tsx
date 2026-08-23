@@ -32,7 +32,7 @@ export default function Header() {
           {nav.map((n, i) => <Link key={n} href={links[i]} className="px-4 py-3 text-[11px] font-bold text-white hover:bg-[#c41e3a] transition">{n}</Link>)}
         </div>
       </nav>
-      {open && <div className="md:hidden bg-[#1a1a2e] px-4 py-2 flex flex-col">{nav.map(n => <Link key={n} href="#" onClick={() => setOpen(false)} className="py-2 text-sm font-bold text-white border-b border-gray-700">{n}</Link>)}</div>}
+      {open && <div className="md:hidden bg-[#1a1a2e] px-4 py-2 flex flex-col">{nav.map((n, i) => <Link key={n} href={links[i]} onClick={() => setOpen(false)} className="py-2 text-sm font-bold text-white border-b border-gray-700">{n}</Link>)}</div>}
     </header>
   );
 }
